@@ -1,20 +1,110 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="../../../../assets/logo.png" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Cart</a>
-            </li>
-        </ul>
+<!-- Start Top_Bar -->
+<div class="top_bar">
+  <div class="container">
+    <div
+      class="row justify-content-md-around justify-content-between ju align-items-center"
+    >
+      <img
+        class="col-md-2 col-3 order-md-1 order-1"
+        src="../../../../assets/Images/logo.png"
+        alt=""
+      />
+      <div class="col-md-7 col-12 mt-md-0 mt-2 order-md-2 order-3">
+        <form action="">
+          <div class="input-group w-100">
+            <input type="text" class="w-100" placeholder="Search ..." />
+            <i class="fas fa-search"></i>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-2 col-md-3 col-5 order-md-3 order-2 cart text-right">
+        <a 
+          style="cursor: pointer;"
+          class="cart" 
+          routerLink="/cart" 
+        >
+          <span>Cart</span>
+          <i class="fas fa-shopping-cart"></i>
+        </a>
       </div>
     </div>
-  </nav>
+  </div>
+</div>
+<!-- End Top_Bar -->
+<!-- ================================================= -->
+<!-- Start Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collect d-flex">
+      <li class="nav-item dropdown order-lg-1 order-2">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Language
+          <i class="fas fa-arrow-circle-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">العربية</a>
+          <a class="dropdown-item" href="#">English</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown login order-lg-2 order-1">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Account
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="signUp.html">Register</a>
+          <a class="dropdown-item" href="signIn.html">Login</a>
+        </div>
+      </li>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products" >Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/products" >Products</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="productList.html">
+            Favorites
+            <i class="fas fa-heart"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End Navbar -->
+<!-- ================================================= -->
