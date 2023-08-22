@@ -1,1 +1,32 @@
-<p>all-products works!</p>
+<!-- ================================================= -->
+<!-- Start New -->
+<div class="best_sell products mb-5 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of products">
+        <div class="item">
+          <a href="product.html">
+            <img src="{{product.image}}" alt="" />
+            <div class="name">{{product.title}}</div>
+            <div class="description">
+                {{product.description}}
+            </div>
+            <div class="price">
+              {{product.price}}
+            </div>
+          </a>
+          <button>
+            <a class="love hidden">
+              <i class="fas fa-heart"></i>
+            </a>
+            <a class="love">
+              <i class="far fa-heart"></i>
+            </a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end New -->
+<!-- ================================================= -->
