@@ -1,0 +1,80 @@
+.loading-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+    position: relative;
+    z-index: 99;
+}
+
+.circle {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 30px 30px 0 #aa0d44,
+                -30px 30px 0 #aa0d44,
+                30px -30px 0 #aa0d44,
+                -30px -30px 0 #aa0d44,
+                0px -45px 0 #aa0d44,
+                0px 45px 0 #aa0d44,
+                45px 0 0 #aa0d44,
+                -45px 0 0 #aa0d44;
+
+    animation: animate 3s infinite;
+}
+
+@keyframes animate {
+
+    0% {
+        box-shadow: 0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0 0 #aa0d44,
+                    0px 0 0 #aa0d44;
+        transform: rotate(0deg);
+    }
+
+    25% {
+        box-shadow: 30px 30px 0 #aa0d44,
+                    -30px 30px 0 #aa0d44,
+                    30px -30px 0 #aa0d44,
+                    -30px -30px 0 #aa0d44,
+                    0px -45px 0 #aa0d44,
+                    0px 45px 0 #aa0d44,
+                    45px 0 0 #aa0d44,
+                    -45px 0 0 #aa0d44;
+        transform: rotate(360deg);
+        
+    }
+
+    75% {
+        box-shadow: 30px 30px 0 #aa0d44,
+                    -30px 30px 0 #aa0d44,
+                    30px -30px 0 #aa0d44,
+                    -30px -30px 0 #aa0d44,
+                    0px -45px 0 #aa0d44,
+                    0px 45px 0 #aa0d44,
+                    45px 0 0 #aa0d44,
+                    -45px 0 0 #aa0d44;
+        transform: rotate(720deg);
+}
+
+    100% {
+        box-shadow: 0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0px 0 #aa0d44,
+                    0px 0 0 #aa0d44,
+                    0px 0 0 #aa0d44;
+        transform: rotate(1440deg);
+    }
+
+}

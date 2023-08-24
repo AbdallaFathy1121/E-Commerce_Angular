@@ -1,18 +1,26 @@
 <!-- ================================================= -->
 <!-- Start New -->
-<div class="best_sell products mb-5 mt-5">
+<div class="best_sell products mb-5 mt-4">
   <div class="container">
+    <div class="form-group w-25">
+      <label for="s">Categories: </label>
+      <select class="form-control" id="s" (change)="filterByCategory($event)">
+        <option value="all" selected>All</option>
+        <option value="{{category}}" *ngFor="let category of categories">{{category}}</option>
+      </select>
+    </div>
+    <app-loading *ngIf="loading"></app-loading>
     <div class="row">
       <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of products">
         <div class="item">
           <a href="product.html">
             <img src="{{product.image}}" alt="" />
-            <div class="name">{{product.title}}</div>
-            <div class="description">
-                {{product.description}}
+            <div class="name">{{product.title.slice(0, 30)}}...</div>
+            <div class="description p-2">
+                {{product.description.slice(0, 65)}}...
             </div>
             <div class="price">
-              {{product.price}}
+              {{product.price | currency:'CAD':'symbol-narrow'}}
             </div>
           </a>
           <button>

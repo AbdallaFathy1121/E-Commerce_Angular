@@ -355,6 +355,10 @@ nav .active {
     font-size: 18px;
 }
 
+.products .description {
+    color: #000000bb;
+}
+
 .products .price .old_price {
     margin-right: 15px;
 }
