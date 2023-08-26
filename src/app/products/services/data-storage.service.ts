@@ -19,14 +19,14 @@ export class DataStorageService {
 
   fetchProducts() {
     return this.http
-        .get<Product[]>(
-            environment.baseApi + 'products'
-        )
-        .pipe(
-            tap((products) => {
-                this.productService.setProducts(products);
-            })
-        );
+      .get<Product[]>(
+          environment.baseApi + 'products'
+      )
+      .pipe(
+          tap((products) => {
+            this.productService.setProducts(products);
+          })
+      );
   }
 
   fetchCategories() {
@@ -36,12 +36,22 @@ export class DataStorageService {
       )
       .pipe(
         tap((categories) => {
-            this.categoryService.setCategories(categories);
+          this.categoryService.setCategories(categories);
         })
       );
   }
 
-
+  fetchProductsByCategory(categoryName: string) {
+    return this.http
+      .get<Product[]>(
+        environment.baseApi + 'products/category/' + categoryName
+      )
+      .pipe(
+        tap((products) => {
+          this.productService.setProducts(products);
+        })
+      );
+  }
 
 
 }

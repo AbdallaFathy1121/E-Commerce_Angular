@@ -4,6 +4,7 @@ import { Subscription, tap } from 'rxjs';
 import { Product } from '../../models/product.model';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
+import { DataStorageService } from '../../services/data-storage.service';
 
 @Component({
   selector: 'app-all-products',
@@ -19,7 +20,8 @@ export class AllProductsComponent implements OnInit, OnDestroy {
 
   constructor(
     private productService: ProductsService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private dataStorageService: DataStorageService
   ) {}
 
   ngOnInit(): void {
@@ -30,11 +32,12 @@ export class AllProductsComponent implements OnInit, OnDestroy {
         this.products = products;
       }
     );
-    this.categorySubscription = this.categoryService.categoriesChanged.subscribe(
-      (categories: Category[]) => {
-        this.categories = categories;
-      }
-    );
+    this.categorySubscription =
+      this.categoryService.categoriesChanged.subscribe(
+        (categories: Category[]) => {
+          this.categories = categories;
+        }
+      );
   }
 
   ngOnDestroy(): void {
@@ -44,22 +47,15 @@ export class AllProductsComponent implements OnInit, OnDestroy {
 
   filterByCategory(event: any) {
     let categoryName = event.target.value;
-    categoryName == 'all'
-      ? this.products
-      : this.getProductsCategory(categoryName);
-  }
-
-  getProductsCategory(categoryName: string) {
     this.loading = true;
-    this.productService.getProductsByCategory(categoryName).subscribe(
-      (res: any) => {
-        this.products = res;
-        this.loading = false;
-      },
-      (error) => {
-        alert(error.message);
-        this.loading = false;
-      }
-    );
+    categoryName != 'all'
+      ? this.dataStorageService.fetchProductsByCategory(categoryName)
+        .subscribe((e) => {
+          this.loading = false;
+        })
+      : this.dataStorageService.fetchProducts()
+        .subscribe((e) => {
+          this.loading = false;
+        });
   }
 }

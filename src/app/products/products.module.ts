@@ -18,6 +18,6 @@ import { CategoryResolverService } from './services/category-resolver.service';
       },
       { path: ':id', component: ProductsDetailsComponent },
     ]),
-  ],
+  ]
 })
 export class ProductsModule {}
