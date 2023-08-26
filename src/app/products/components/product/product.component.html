@@ -1,0 +1,21 @@
+<div class="item">
+  <img src="{{ item.image }}" alt="" />
+  <div class="name">{{ item.title.slice(0, 30) }}...</div>
+  <div class="description p-2">{{ item.description.slice(0, 65) }}...</div>
+  <div class="row justify-content-between align-items-center mt-1 pl-2 pr-2">
+    <button class="btn btn-success" type="button" (click)="add()">
+      Add To Cart
+    </button>
+    <div class="price">
+      {{ item.price | currency : "CAD" : "symbol-narrow" }}
+    </div>
+  </div>
+  <button>
+    <a class="love hidden">
+      <i class="fas fa-heart"></i>
+    </a>
+    <a class="love">
+      <i class="far fa-heart"></i>
+    </a>
+  </button>
+</div>

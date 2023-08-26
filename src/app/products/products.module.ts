@@ -5,9 +5,10 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ProductResolverService } from './services/product-resolver.service';
 import { CategoryResolverService } from './services/category-resolver.service';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
-  declarations: [AllProductsComponent, ProductsDetailsComponent],
+  declarations: [AllProductsComponent, ProductsDetailsComponent, ProductComponent],
   imports: [
     SharedModule,
     RouterModule.forChild([

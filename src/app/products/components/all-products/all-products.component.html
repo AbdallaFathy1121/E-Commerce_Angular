@@ -3,37 +3,14 @@
 <div class="best_sell products mb-5 mt-4">
   <div class="container">
     <div class="form-group w-25">
-      <label for="s">Categories: </label>
-      <select class="form-control" id="s" (change)="filterByCategory($event)">
-        <option value="all" selected>All</option>
-        <option value="{{category}}" *ngFor="let category of categories">{{category}}</option>
-      </select>
+      <app-select [data]="categories" [title]="'Categories'" (selectedValue)="filterByCategory($event)"></app-select>
     </div>
-    <app-loading *ngIf="loading"></app-loading>
     <div class="row" *ngIf="!loading">
       <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of products">
-        <div class="item">
-          <a href="product.html">
-            <img src="{{product.image}}" alt="" />
-            <div class="name">{{product.title.slice(0, 30)}}...</div>
-            <div class="description p-2">
-                {{product.description.slice(0, 65)}}...
-            </div>
-            <div class="price">
-              {{product.price | currency:'CAD':'symbol-narrow'}}
-            </div>
-          </a>
-          <button>
-            <a class="love hidden">
-              <i class="fas fa-heart"></i>
-            </a>
-            <a class="love">
-              <i class="far fa-heart"></i>
-            </a>
-          </button>
-        </div>
+        <app-product [item]="product" (cartItem)="addToCart($event)"></app-product>
       </div>
     </div>
+    <app-loading *ngIf="loading"></app-loading>
   </div>
 </div>
 <!-- end New -->

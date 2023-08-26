@@ -4,12 +4,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { LoadingComponent } from './components/loading/loading.component';
+import { SelectComponent } from './components/select/select.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    LoadingComponent
+    LoadingComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,7 @@ import { LoadingComponent } from './components/loading/loading.component';
   exports: [
     HeaderComponent,
     LoadingComponent,
+    SelectComponent,
     CommonModule
   ]
 })

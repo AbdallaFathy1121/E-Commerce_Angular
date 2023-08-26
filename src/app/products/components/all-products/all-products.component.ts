@@ -17,6 +17,7 @@ export class AllProductsComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   productSubscription!: Subscription;
   categorySubscription!: Subscription;
+  cartProducts: Product[] = [];
 
   constructor(
     private productService: ProductsService,
@@ -50,12 +51,28 @@ export class AllProductsComponent implements OnInit, OnDestroy {
     this.loading = true;
     categoryName != 'all'
       ? this.dataStorageService.fetchProductsByCategory(categoryName)
-        .subscribe((e) => {
-          this.loading = false;
-        })
+          .subscribe((e) => {
+            this.loading = false;
+          })
       : this.dataStorageService.fetchProducts()
-        .subscribe((e) => {
-          this.loading = false;
-        });
+          .subscribe((e) => {
+            this.loading = false;
+          });
+  }
+
+  addToCart(event: any) {
+    if ('cart' in localStorage) {
+      this.cartProducts = JSON.parse(localStorage.getItem('cart')!);
+      let exist = this.cartProducts.find((item) => item.id == event.id);
+      if (!exist) {
+        this.cartProducts.push(event);
+        localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+      } else {
+        alert('This product already in your cart');
+      }
+    } else {
+      this.cartProducts.push(event);
+      localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    }
   }
 }
