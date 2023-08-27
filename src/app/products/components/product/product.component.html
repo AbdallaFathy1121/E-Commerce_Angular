@@ -1,4 +1,4 @@
-<div class="item">
+<div class="item" routerLink="/products/{{item.id}}" >
   <img src="{{ item.image }}" alt="" />
   <div class="name">{{ item.title.slice(0, 30) }}...</div>
   <div class="description p-2">{{ item.description.slice(0, 65) }}...</div>

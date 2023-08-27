@@ -53,5 +53,12 @@ export class DataStorageService {
       );
   }
 
+  fetchProductById(id: number) {
+    return this.http
+      .get<Product>(
+        environment.baseApi + 'products/' + id
+      )
+  }
+
 
 }
