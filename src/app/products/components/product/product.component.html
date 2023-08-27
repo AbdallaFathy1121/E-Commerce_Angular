@@ -3,19 +3,15 @@
   <div class="name">{{ item.title.slice(0, 30) }}...</div>
   <div class="description p-2">{{ item.description.slice(0, 65) }}...</div>
   <div class="row justify-content-between align-items-center mt-1 pl-2 pr-2">
-    <button class="btn btn-success" type="button" (click)="add()">
+    <button class="btn btn-success" type="button" *ngIf="!addButton" (click)="addButton = true">
       Add To Cart
     </button>
+    <div class="amount d-flex w-50" *ngIf="addButton">
+      <input type="number" class="form-control" value="1" [(ngModel)]="amount" />
+      <button class="btn btn-danger d-inline" (click)="add()">Add</button>
+    </div>
     <div class="price">
       {{ item.price | currency : "CAD" : "symbol-narrow" }}
     </div>
   </div>
-  <button>
-    <a class="love hidden">
-      <i class="fas fa-heart"></i>
-    </a>
-    <a class="love">
-      <i class="far fa-heart"></i>
-    </a>
-  </button>
 </div>

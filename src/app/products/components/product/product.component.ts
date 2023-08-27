@@ -9,9 +9,11 @@ import { Product } from '../../models/product.model';
 export class ProductComponent {
   @Input() item!: Product;
   @Output() cartItem = new EventEmitter();
+  addButton: boolean = false;
+  amount: number = 1;
 
   add() {
-    this.cartItem.emit(this.item);
+    this.cartItem.emit({item: this.item, quantity: this.amount});
   }
 
 }

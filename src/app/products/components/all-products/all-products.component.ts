@@ -5,6 +5,7 @@ import { Product } from '../../models/product.model';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
 import { DataStorageService } from '../../services/data-storage.service';
+import { CartProduct } from '../../models/cartProduct.model';
 
 @Component({
   selector: 'app-all-products',
@@ -17,7 +18,7 @@ export class AllProductsComponent implements OnInit, OnDestroy {
   loading: boolean = false;
   productSubscription!: Subscription;
   categorySubscription!: Subscription;
-  cartProducts: Product[] = [];
+  cartProducts: CartProduct[] = [];
 
   constructor(
     private productService: ProductsService,
@@ -63,7 +64,7 @@ export class AllProductsComponent implements OnInit, OnDestroy {
   addToCart(event: any) {
     if ('cart' in localStorage) {
       this.cartProducts = JSON.parse(localStorage.getItem('cart')!);
-      let exist = this.cartProducts.find((item) => item.id == event.id);
+      let exist = this.cartProducts.find((item) => item.item.id == event.item.id);
       if (!exist) {
         this.cartProducts.push(event);
         localStorage.setItem('cart', JSON.stringify(this.cartProducts));
@@ -75,4 +76,12 @@ export class AllProductsComponent implements OnInit, OnDestroy {
       localStorage.setItem('cart', JSON.stringify(this.cartProducts));
     }
   }
+
+
+
+
+
+
+
+
 }
