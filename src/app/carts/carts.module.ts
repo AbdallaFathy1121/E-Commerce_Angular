@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CartComponent } from './components/cart/cart.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     SharedModule,
+    FormsModule,
     RouterModule.forChild([
       {path: '', component: CartComponent},
     ])

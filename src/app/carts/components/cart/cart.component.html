@@ -1,1 +1,77 @@
-<p>cart works!</p>
+<div class="cart container mt-5">
+
+    <!-- Start Table -->
+    <div class="table-responsive-lg mb-2">
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quntity</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <!-- If Cart is Empty -->
+                <tr *ngIf="!cartProducts">
+                    <td colspan="6">There are no products to display in the card</td>
+                </tr>
+                <!-- If Cart is Empty -->
+
+                <tr *ngFor="let item of cartProducts">
+                    <td><img [src]="item.item.image" alt=""></td>
+                    <td class="name">{{item.item.title}}</td>
+                    <td class="price">
+                        {{ item.item.price| currency : "CAD" : "symbol-narrow" }}
+                    </td>
+                    <td class="qty">
+                        <input type="number" min="1" [value]="item.quantity" [(ngModel)]="item.quantity">
+                    </td>
+                    <td class="subtotal">
+                        {{item.item.price * item.quantity| currency : "CAD" : "symbol-narrow"}}
+                    </td>
+                    <td class="remove">
+                        <a style="cursor: pointer;">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+   
+            </tbody>
+        </table>
+    </div>
+    <!-- End Table -->
+
+    <!-- Start buttons -->
+    <div class="buttons mt-3">
+
+        <div class="info d-flex align-items-center">
+            <div class="left">
+                <a href="#" data-total="">Total: 
+                    <span>
+                        {{ total| currency : "CAD" : "symbol-narrow" }}
+                    </span>
+                </a>
+            </div>
+            <div class="right ml-auto">
+                <a href="#" class="clear ml-auto">
+                    <i class="far fa-times-circle"></i> Clear Cart
+                </a>
+            </div>
+        </div>
+
+        <div class="proccess mt-5 d-flex align-items-center">
+            <div class="left">
+                <a routerLink="/products" class="mr-3"><i class="fas fa-long-arrow-alt-left mr-2"></i> Continue Shopping</a>
+            </div>
+            <div class="right ml-auto">
+                <a href="checkout.html">Proceed To CheckOut <i class="fas fa-sign-out-alt ml-2"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- End buttons -->
+
+</div>

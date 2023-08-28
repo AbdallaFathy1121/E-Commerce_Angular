@@ -37,35 +37,6 @@ $(window).on('load', function() {
     });
 
     ////////////////////////////////////////////////////
-    
-    // Toggle icon
-    $(".love").on("click", function(){
-        $(this).addClass("hidden").siblings().removeClass("hidden");
-        $(this).parent().toggleClass("active");
-    });
 
-    $(".button-love").click(function(){
-        $(this).toggleClass("active").removeClass("hidden");
-    });
-
-    /////////////////////////
-
-    // Cart Count
-    $(".count .cart_count").val(1);
-
-    $(".count .increment").on("click", function(){
-        $(this).parent().children(".cart_count").val( function(i, oldval) {
-            return parseInt( oldval, 10) + 1;
-        });
-    });
-    
-    $(".count .decrement").on("click", function(){
-        if($(this).parent().children(".cart_count").val() != 1){
-            $(this).parent().children(".cart_count").val( function(i, oldval) {
-                return parseInt( oldval, 10) - 1;
-            });
-        }
-
-    });
 
 });

@@ -1,4 +1,4 @@
 
-.item {
+.item div:first-child {
     cursor: pointer;
 }
